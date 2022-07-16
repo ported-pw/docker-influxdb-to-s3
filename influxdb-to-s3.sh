@@ -19,7 +19,7 @@ export DATETIME=$(date "+%Y%m%d%H%M%S")
 if [ -z "${S3_ENDPOINT}" ]; then
   AWS_ARGS=""
 else
-  AWS_ARGS="--endpoint-url ${S3_ENDPOINT}"
+  AWS_ARGS="--endpoint-url=${S3_ENDPOINT}"
 fi
 
 # Add this script to the crontab and start crond
