@@ -1,4 +1,4 @@
-FROM influxdb:1.0-alpine
+FROM influxdb:2.3-alpine
 MAINTAINER Jacob Tomlinson <jacob@tom.linson.uk>
 
 # Install system dependancies
