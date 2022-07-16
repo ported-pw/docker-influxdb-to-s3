@@ -3,11 +3,8 @@
 This container periodically runs a backup of an InfluxDB database to an S3 bucket. It also has the ability to restore.
 
 ## Usage
+For `INFLUX_TOKEN` you __must__ use the initial superuser token. You can find this using `influx auth list` on the InfluxDB server.
 
-On the InfluxDB server, create an auth token:
-```shell
-influx auth create --org myorg --read-buckets
-```
 
 ### Default cron (1am daily)
 
@@ -16,6 +13,7 @@ docker run \
     -e INFLUX_ORG=myorg
     -e INFLUX_BUCKET=mydatabase \
     -e INFLUX_HOST=http://1.2.3.4:8086 \
+    -e INFLUX_TOKEN=sometoken
     -e S3_BUCKET=mybackupbucket \
     -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE \
     -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
@@ -30,6 +28,7 @@ docker run \
     -e INFLUX_ORG=myorg
     -e INFLUX_BUCKET=mydatabase \
     -e INFLUX_HOST=http://1.2.3.4:8086 \
+    -e INFLUX_TOKEN=sometoken
     -e S3_BUCKET=mybackupbucket \
     -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE \
     -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
@@ -45,6 +44,7 @@ docker run \
     -e INFLUX_ORG=myorg
     -e INFLUX_BUCKET=mydatabase \
     -e INFLUX_HOST=http://1.2.3.4:8086 \
+    -e INFLUX_TOKEN=sometoken
     -e S3_BUCKET=mybackupbucket \
     -e AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE \
     -e AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
